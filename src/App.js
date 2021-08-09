@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.scss";
+import { CardList } from "./components/card-list/card-list.component";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      persons: [
+        {
+          name: "Hannah",
+        },
+        {
+          name: "Martin",
+        },
+        {
+          name: "Tea",
+        },
+      ],
+    };
+  }
+
+  async componentDidMount() {
+    const jsn = await fetch("https://jsonplaceholder.typicode.com/users");
+    const res = await jsn.json();
+    this.setState({ persons: res });
+    console.log(res);
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <CardList persons={this.state.persons}></CardList>
+      </div>
+    );
+  }
 }
-
-export default App;
