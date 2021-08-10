@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -26,6 +30,42 @@
 
 .App-link {
   color: #61dafb;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #eee;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #eee;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #eee;
+}
+
+p {
+  color: rgb(202, 229, 255);
+}
+
+h1 {
+  color: white;
+  margin: 2rem;
+}
+
+h2 {
+  font-family: Roboto;
+  font-weight: 900;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+body {
+  background-color: #ff94a1;
 }
 
 @keyframes App-logo-spin {
